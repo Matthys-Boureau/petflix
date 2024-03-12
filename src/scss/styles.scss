@@ -1,0 +1,26 @@
+:root {
+    --white: rgb(255, 255, 255);
+    --black: rgb(20, 20, 20);
+    --grey-300: rgb(245, 245, 245);
+    --grey-600: rgb(191, 191, 191);
+    --grey-700: rgb(140, 140, 140);
+    --main-600: rgb(0, 113, 227);
+    --red-600: rgb(234, 74, 62);
+    --header-height: 56px;
+}
+
+* {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--black);
+}
+
+body {
+    min-width: 100dvw;
+    max-width: 100dvw;
+    min-height: 100dvh;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: var(--white);
+}

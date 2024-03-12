@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    align-items: center;
+    min-height: var(--header-height);
+    padding: 8px 16px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    ul {
+        display: flex;
+        gap: 16px;
+
+        li {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

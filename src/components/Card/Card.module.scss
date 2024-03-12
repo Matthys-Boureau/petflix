@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: fit-content;
+    border-radius: 16px;
+    cursor: pointer;
+
+    &:hover {
+        img {
+            filter: brightness(0.8);
+        }
+    }
+
+    img {
+        min-width: 100%;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 9/5;
+        background-color: var(--grey-300);
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 12px 8px;
+
+        h3 {
+            font-size: 1rem;
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 0.75rem;
+            color: var(--grey-700);
+        }
+    }
+}
