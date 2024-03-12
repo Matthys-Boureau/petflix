@@ -19,13 +19,15 @@ export default function Header() {
       </ul>
       {/* Logo */}
       <div className='c-header__logo'>
+      <Link href={'#'}>
         <Image
-          src={'/assets/images/next.svg'}
+          src={'/assets/images/logo.png'}
           alt="Petflix logo"
-          width={100}
+          width={120}
           height={50}
           priority
         />
+      </Link>
       </div>
       {/* Right menu */}
       <ul className='c-header__connexion'>
