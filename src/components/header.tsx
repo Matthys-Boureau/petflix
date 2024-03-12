@@ -1,23 +1,24 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import '@/css/_header.css';
 
 export default function Header() {
   return (
-    <nav>
+    <nav className='c-header'>
       {/* Left menu */}
-      <ul>
-        <li>
+      <ul className='c-header__navigation'>
+        <li className='c-header__navigation-link'>
           <Link href={'#'}>Home</Link>
         </li>
-        <li>
+        <li className='c-header__navigation-link'>
           <Link href={'#'}>Adopt</Link>
         </li>
-        <li>
+        <li className='c-header__navigation-link'>
           <Link href={'#'}>Contact</Link>
         </li>
       </ul>
       {/* Logo */}
-      <div>
+      <div className='c-header__logo'>
         <Image
           src={'/assets/images/next.svg'}
           alt="Petflix logo"
@@ -27,7 +28,7 @@ export default function Header() {
         />
       </div>
       {/* Right menu */}
-      <ul>
+      <ul className='c-header__connexion'>
         <li>
           <Link href={'#'} rel="login">
             <Image
