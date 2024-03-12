@@ -36,8 +36,8 @@ export default function Header() {
             <Image
               src={'/assets/icons/not-logged.png'}
               alt="Login"
-              width={25}
-              height={25}
+              width={20}
+              height={20}
             />
           </Link>
         </li>
@@ -46,8 +46,8 @@ export default function Header() {
             <Image
               src={'/assets/icons/not-logged.png'}
               alt="Login"
-              width={25}
-              height={25}
+              width={20}
+              height={20}
             />
           </Link>
         </li>

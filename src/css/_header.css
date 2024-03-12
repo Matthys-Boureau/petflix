@@ -5,8 +5,8 @@
 .c-header {
     /* Variable interne */
     --Header-paddingY : 1.2rem;
-    --Header-paddingX : 12rem;
-    --Header-fontSize : 2.4rem;
+    --Header-paddingX : 16rem;
+    --Header-fontSize : 2.8rem;
     /* **************** */
 
     width: calc(100% - ( 2 * var(--Header-paddingX)));
