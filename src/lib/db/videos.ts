@@ -18,6 +18,19 @@ export const getVideos = cache(async () => {
             title: true,
             description: true,
             url: true,
+            uploadedAt: true,
+            Animal: {
+                select: {
+                    Type: {
+                        select: {
+                            label: true
+                        }
+                    }
+                }
+            }
+        },
+        orderBy: {
+            uploadedAt: 'desc'
         }
     })
 
@@ -86,6 +99,24 @@ export const getVideosByType = cache(async (typeId: number) => {
 
     return videos;
 });
+
+export const getVideosByCity = cache(async (city: string) => {
+    const videos = await prismadb.video.findMany({
+        where: {
+            User: {
+                shelterCity: city
+            }
+        },
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            url: true,
+        }
+    })
+
+    return videos;
+})
 
 export type VideosListType = Prisma.PromiseReturnType<typeof getVideos>
 

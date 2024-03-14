@@ -10,4 +10,14 @@
         font-size: 1.5rem;
         font-weight: 600;
     }
+
+    address {
+        p {
+            font-size: 0.75rem;
+
+            &:first-child {
+                font-weight: 600;
+            }
+        }
+    }
 }
