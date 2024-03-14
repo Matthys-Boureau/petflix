@@ -40,14 +40,14 @@ export default function UploadForm({ types }: { types: TypeType[] }) {
             <TextArea name="description" label="Description" />
             <Input name="url" label="URL" />
             <Input type="number" name="number" label="Nombre d'animaux" change={(e) => setNumberOfAnimals(parseInt(e.target.value))} />
-            {Array.from({ length: numberOfAnimals }).map((_, index) => (
+            {/* {Array.from({ length: numberOfAnimals }).map((_, index) => (
                 <div key={index} className={style.group}>
                     <h2>Animal {index + 1}</h2>
                     <Input name={`name-${index}`} label="Nom" />
                     <Input type="number" name={`age-${index}`} label="Age" />
                     <Select name={`species-${index}`} label="Espèce" options={options} />
                 </div>
-            ))}
+            ))} */}
             <FormButtons>
                 <Button type="submit" variant="main">Publier</Button>
             </FormButtons>

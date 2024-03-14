@@ -13,7 +13,7 @@ async function main() {
                 id: 2,
                 label: 'Chat',
             },
-        ]
+        ], skipDuplicates: true
     });
     console.log('Types created: ', types);
 
@@ -25,7 +25,7 @@ async function main() {
                 title: 'Vidéo 1',
                 description: 'Maki',
                 userId: 1,
-                uploadedAt: "2024-03-14 10:45:07.018"
+                uploadedAt: new Date()
             },
             {
                 id: 2,
@@ -33,9 +33,9 @@ async function main() {
                 title: 'Vidéo 2',
                 description: 'Uma et Levis',
                 userId: 1,
-                uploadedAt: "2024-03-14 10:50:07.018"
+                uploadedAt: new Date()
             }
-        ]
+        ], skipDuplicates: true
     });
     console.log('Videos created: ', videos);
 
@@ -44,22 +44,22 @@ async function main() {
             {
                 name: 'Maki',
                 age: 5,
-                arrivedAt: "2024-03-13 23:13:37.615",
+                arrivedAt: new Date(),
                 typeId: 1,
             },
             {
                 name: 'Uma',
                 age: 3,
-                arrivedAt: "2024-03-13 23:27:41.062",
+                arrivedAt: new Date(),
                 typeId: 2,
             },
             {
                 name: 'Levis',
                 age: 12,
-                arrivedAt: "2024-03-13 23:30:54.190",
+                arrivedAt: new Date(),
                 typeId: 1,
             },
-        ]
+        ], skipDuplicates: true
     });
     console.log('Animals created: ', animals);
 }

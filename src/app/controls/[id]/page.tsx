@@ -1,6 +1,5 @@
 import Badge from "@/components/Badge/Badge";
 import { getControlById } from "@/lib/db/controls";
-import { getVideoById } from "@/lib/db/videos";
 import { notFound } from "next/navigation";
 
 export default async function Page({ params: { id } }: { params: { id: string } }) {
