@@ -1,10 +1,10 @@
 import Card from "@/components/Card/Card";
 import style from './VideosList.module.scss'
 import Select from "@/components/Select/Select";
-import { VideoType } from "@/lib/db/videos";
+import { VideoType, VideosListType } from "@/lib/db/videos";
 import { TypeType } from "@/lib/db/types";
 
-export default function VideosList({ videos, types }: { videos: VideoType[], types: TypeType[] }) {
+export default function VideosList({ videos, types }: { videos: VideosListType, types: TypeType[] }) {
     const allOption = { key: 0, value: 'all', label: 'Tous' };
     // @ts-ignore
     const options = [allOption, ...types.map(type => ({ key: type.id, value: type.id, label: type.label }))];

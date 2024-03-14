@@ -87,4 +87,6 @@ export const getVideosByType = cache(async (typeId: number) => {
     return videos;
 });
 
+export type VideosListType = Prisma.PromiseReturnType<typeof getVideos>
+
 export type VideoType = Prisma.PromiseReturnType<typeof getVideoById>
