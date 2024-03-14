@@ -1,14 +1,8 @@
-"use client"
-
 import Card from "@/components/Card/Card";
 import style from './ControlsList.module.scss'
 import { ControlsType } from "@/lib/db/controls";
-import { useAuthContext } from "@/contexts/AuthContext";
-import { notFound } from "next/navigation";
 
 export default function ControlsList({ controls }: { controls: ControlsType }) {
-    const { isSignedIn } = useAuthContext();
-    if (!isSignedIn) notFound();
     return (
         <section className={style.container}>
             {controls.length > 0 ?

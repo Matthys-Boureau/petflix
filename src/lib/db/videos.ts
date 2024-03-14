@@ -23,6 +23,7 @@ export const getVideos = cache(async () => {
                 select: {
                     Type: {
                         select: {
+                            id: true,
                             label: true
                         }
                     }
@@ -69,6 +70,7 @@ export const getVideoById = cache(async (id: number) => {
                     },
                     Type: {
                         select: {
+                            id: true,
                             label: true
                         }
                     }
@@ -94,6 +96,19 @@ export const getVideosByType = cache(async (typeId: number) => {
             title: true,
             description: true,
             url: true,
+            uploadedAt: true,
+            Animal: {
+                select: {
+                    Type: {
+                        select: {
+                            label: true
+                        }
+                    }
+                }
+            }
+        },
+        orderBy: {
+            uploadedAt: 'desc'
         }
     })
 
@@ -117,6 +132,14 @@ export const getVideosByCity = cache(async (city: string) => {
 
     return videos;
 })
+
+export const addVideo = async (data: Prisma.VideoCreateInput) => {
+    const video = await prismadb.video.create({
+        data: data
+    })
+
+    return video;
+}
 
 export type VideosListType = Prisma.PromiseReturnType<typeof getVideos>
 

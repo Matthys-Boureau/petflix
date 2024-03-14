@@ -15,7 +15,6 @@ async function main() {
             },
         ], skipDuplicates: true
     });
-    console.log('Types created: ', types);
 
     const user = await prisma.user.create({
         data: {
@@ -26,7 +25,6 @@ async function main() {
             tel: '0622762543'
         },
     });
-    console.log('User created: ', user);
 
     const videos = await prisma.video.createMany({
         data: [
@@ -48,7 +46,6 @@ async function main() {
             }
         ], skipDuplicates: true
     });
-    console.log('Videos created: ', videos);
 
     const animals = await prisma.animal.createMany({
         data: [
@@ -57,22 +54,47 @@ async function main() {
                 age: 5,
                 arrivedAt: new Date(),
                 typeId: 1,
+                videoId: 1
             },
             {
                 name: 'Uma',
                 age: 3,
                 arrivedAt: new Date(),
                 typeId: 2,
+                videoId: 2
             },
             {
                 name: 'Levis',
                 age: 12,
                 arrivedAt: new Date(),
                 typeId: 1,
+                videoId: 2
             },
         ], skipDuplicates: true
     });
-    console.log('Animals created: ', animals);
+
+    const adopter = await prisma.adopter.create({
+        data: {
+            id: 1,
+            firstname: 'Matthys',
+            lastname: 'Bourreau',
+            email: 'matthys@gmail.com',
+            address: 53,
+            street: 'rue de la gare',
+            city: 'Lille',
+        },
+    });
+
+    const adoptions = await prisma.adoption.createMany({
+        data: [
+            {
+                animalId: 2,
+                adopterId: 1,
+                adoptedAt: new Date(),
+                controlDate: new Date(new Date().setMonth(new Date().getMonth() + 6)),
+            },
+        ], skipDuplicates: true
+    });
 }
 main()
     .then(async () => {
