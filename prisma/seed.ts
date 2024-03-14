@@ -17,6 +17,17 @@ async function main() {
     });
     console.log('Types created: ', types);
 
+    const user = await prisma.user.create({
+        data: {
+            id: 1,
+            name: 'Achille',
+            email: 'davidachille18@gmail.com',
+            shelterCity: 'Lesquin',
+            tel: '0622762543'
+        },
+    });
+    console.log('User created: ', user);
+
     const videos = await prisma.video.createMany({
         data: [
             {

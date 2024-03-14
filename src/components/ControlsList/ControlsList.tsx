@@ -1,3 +1,5 @@
+"use client"
+
 import Card from "@/components/Card/Card";
 import style from './ControlsList.module.scss'
 import { ControlsType } from "@/lib/db/controls";
