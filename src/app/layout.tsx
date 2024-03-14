@@ -19,6 +19,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <main className={style.container}>{children}</main>
         </AuthContextProvider>
       </body>
-    </html>
+    </html >
   );
 }

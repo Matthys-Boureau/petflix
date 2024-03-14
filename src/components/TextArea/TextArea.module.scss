@@ -1,0 +1,44 @@
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    * {
+        font-size: 0.875rem;
+        color: var(--black);
+    }
+
+    p {
+        font-weight: 600;
+        user-select: none;
+
+        span {
+            margin-left: 2px;
+            color: var(--red-600);
+        }
+    }
+
+    textarea {
+        border: 1px solid transparent;
+        outline: none;
+        background-color: var(--grey-300);
+        width: 100%;
+        min-height: 40px;
+        resize: vertical;
+        flex: 1;
+        border-radius: 4px;
+        padding: 8px;
+        color: var(--black);
+        transition: border 200ms ease;
+        font-weight: 500;
+
+        &:focus,
+        &:focus-visible {
+            border-color: var(--grey-600);
+        }
+
+        &::placeholder {
+            opacity: 0.5;
+        }
+    }
+}

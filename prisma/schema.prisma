@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Video {
+  id          Int      @id @default(autoincrement())
+  url         String
+  title       String
+  description String
+  User        User?    @relation(fields: [userId], references: [id])
+  userId      Int?
+  Animal      Animal[]
+}
+
+model User {
+  id          Int     @id @default(autoincrement())
+  name        String
+  email       String  @unique
+  tel         String
+  shelterCity String
+  Videos      Video[]
+}
+
+model Animal {
+  id         Int        @id @default(autoincrement())
+  name       String
+  age        Int
+  arrivedAt  DateTime   @default(now())
+  controlled Boolean    @default(false)
+  Video      Video?     @relation(fields: [videoId], references: [id])
+  videoId    Int?
+  Type       Type?      @relation(fields: [typeId], references: [id])
+  typeId     Int?
+  Adoption   Adoption[]
+}
+
+model Type {
+  id     Int      @id @default(autoincrement())
+  label  String
+  Animal Animal[]
+}
+
+model Adoption {
+  id          Int      @id @default(autoincrement())
+  adoptedAt   DateTime @default(now())
+  controlDate DateTime
+  Animal      Animal   @relation(fields: [animalId], references: [id])
+  animalId    Int
+  Adopter     Adopter  @relation(fields: [adopterId], references: [id])
+  adopterId   Int
+}
+
+model Adopter {
+  id        Int        @id @default(autoincrement())
+  firstname String
+  lastname  String
+  email     String     @unique
+  address   Int
+  street    String
+  city      String
+  Adoption  Adoption[]
+}

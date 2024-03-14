@@ -1,13 +1,13 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { PropsWithChildren, createContext, useContext, useState } from "react";
 
 const AuthContext = createContext({
     isSignedIn: false,
     setIsSignedIn: (value: boolean) => { },
 });
 
-const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
+const AuthContextProvider = ({ children }: PropsWithChildren) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
 
     return (

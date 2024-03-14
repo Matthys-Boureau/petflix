@@ -1,13 +1,11 @@
-.container {
+.group {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: 100%;
-    padding: 16px;
-    padding-top: calc(var(--header-height) + 8px);
 
     h2 {
         font-size: 1.5rem;
         font-weight: 600;
+        color: var(--black);
     }
 }

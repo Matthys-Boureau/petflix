@@ -1,7 +1,12 @@
 import VideosList from "@/components/VideosList/VideosList";
+import { getTypes } from "@/lib/db/types";
+import { getVideos } from "@/lib/db/videos";
 
-export default function Home() {
+export default async function Home() {
+  const videos = await getVideos();
+  const types = await getTypes();
+
   return (
-    <VideosList />
+    <VideosList videos={videos} types={types} />
   );
 }

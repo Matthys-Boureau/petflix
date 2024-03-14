@@ -1,37 +1,25 @@
 import Card from "@/components/Card/Card";
 import style from './VideosList.module.scss'
+import Select from "@/components/Select/Select";
+import { VideoType } from "@/lib/db/videos";
+import { TypeType } from "@/lib/db/types";
 
-type videoType = {
-    title: string;
-    description: string;
-    thumbnail: string;
-    url?: string;
-}
+export default function VideosList({ videos, types }: { videos: VideoType[], types: TypeType[] }) {
+    const allOption = { key: 0, value: 'all', label: 'Tous' };
+    // @ts-ignore
+    const options = [allOption, ...types.map(type => ({ key: type.id, value: type.id, label: type.label }))];
 
-const videos: videoType[] = [
-    {
-        title: "Video 1",
-        description: "Description 1",
-        thumbnail: "https://via.placeholder.com/150"
-    },
-    {
-        title: "Video 2",
-        description: "Description 2",
-        thumbnail: "https://via.placeholder.com/150"
-    },
-    {
-        title: "Video 3",
-        description: "Description 3",
-        thumbnail: "https://via.placeholder.com/150"
-    }
-]
-
-export default function VideosList() {
     return (
         <section className={style.container}>
-            {videos.map((video, index) => (
-                <Card key={index} {...video} />
-            ))}
+            <Select name="type" label="Type" options={options} required={false} />
+            <div className={style.list}>
+                {videos.length > 0 ?
+                    videos.map((video, index) => (
+                        video && <Card key={index} {...video} thumbnail="" href={`/videos/${video.id}`} />
+                    )) :
+                    <p>Aucune vidéo n&apos;a été trouvée</p>
+                }
+            </div>
         </section>
     )
 }
