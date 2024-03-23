@@ -1,4 +1,8 @@
 .head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
     p {
         color: var(--grey-700);
         font-size: 0.75rem;
@@ -11,8 +15,12 @@
     gap: 6px;
 
     li {
-        display: flex;
-        gap: 6px;
-        align-items: center;
+        a {
+            &:hover {
+                p {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }

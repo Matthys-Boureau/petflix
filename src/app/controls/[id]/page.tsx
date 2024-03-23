@@ -1,3 +1,4 @@
+import AnimalInline from "@/components/AnimalInline/AnimalInline";
 import Badge from "@/components/Badge/Badge";
 import { getControlById } from "@/lib/db/controls";
 import { notFound } from "next/navigation";
@@ -15,7 +16,7 @@ export default async function Page({ params: { id } }: { params: { id: string } 
                 <p>{adopter.email}</p>
                 <p>{adopter.address} {adopter.street} {adopter.city}</p>
             </address>
-            <p>{animal.name}, {animal.age} ans <Badge>{animal.Type?.label}</Badge></p>
+            <AnimalInline animal={animal} />
             <p>Adopté le : {animal.Adoption[0].adoptedAt.toLocaleDateString()}</p>
         </>
     )

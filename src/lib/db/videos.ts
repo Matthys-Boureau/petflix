@@ -48,6 +48,7 @@ export const getVideoById = cache(async (id: number) => {
             title: true,
             description: true,
             url: true,
+            uploadedAt: true,
             User: {
                 select: {
                     id: true,

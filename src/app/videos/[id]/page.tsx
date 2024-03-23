@@ -1,7 +1,8 @@
-import Badge from "@/components/Badge/Badge";
 import { getVideoById } from "@/lib/db/videos";
 import { notFound } from "next/navigation";
 import style from './layout.module.scss'
+import Link from "next/link";
+import AnimalInline from "@/components/AnimalInline/AnimalInline";
 
 export default async function Page({ params: { id } }: { params: { id: string } }) {
     const video = await getVideoById(parseInt(id));
@@ -16,7 +17,16 @@ export default async function Page({ params: { id } }: { params: { id: string } 
             </div>
             <ul className={style.list}>
                 {animals.map(animal => (
-                    animal && <li key={animal.id}>{animal.name}, {animal.age} ans <Badge>{animal.Type?.label}</Badge> {animal.Adoption[0] && <Badge>Adopté</Badge>}</li>
+                    animal && (
+                        <li key={animal.id}>
+                            {animal.Adoption[0] ?
+                                <AnimalInline animal={animal} /> :
+                                <Link href={`/adopt/${animal.id}`}>
+                                    <AnimalInline animal={animal} />
+                                </Link>
+                            }
+                        </li>
+                    )
                 ))}
             </ul>
             <iframe
@@ -26,7 +36,7 @@ export default async function Page({ params: { id } }: { params: { id: string } 
                 title={video.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" />
             <address>
-                <p>Postée par</p>
+                <p>Vidéo postée le {video.uploadedAt.toLocaleDateString()} par :</p>
                 <p>{user.name}</p>
                 <p>{user.email}</p>
                 <p>{user.tel}</p>

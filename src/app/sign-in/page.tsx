@@ -16,7 +16,7 @@ export default function SignIn() {
         e.preventDefault();
         const email = e.currentTarget.email.value;
         const password = e.currentTarget.password.value;
-        if (email && password) {
+        if (email === "admin" && password === "admin") {
             setIsSignedIn(true);
             redirect("/account");
         }

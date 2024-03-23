@@ -7,7 +7,6 @@ import { notFound } from "next/navigation";
 export default function Account() {
     const { isSignedIn, setIsSignedIn } = useAuthContext();
     if (!isSignedIn) notFound();
-
     return (
         <>
             <p>Mon compte</p>
